@@ -1,4 +1,4 @@
-﻿# Design System: Através do Livro — Dani Valentim
+# Design System: Através do Livro — Dani Valentim
 
 ## 1. Visão Geral
 Estética editorial premium, inspirada em publicações literárias de alto padrão e clubes de leitura internacionais, combinando aconchego, sofisticação e clareza.
