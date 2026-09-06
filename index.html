@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Através do Livro | Clube de Leitura com Dani Valentim</title>
+  <meta name="description" content="Clube de leitura guiado por Daniela Valentim. Encontros quinzenais, curadoria de obras transformadoras, cronogramas leves e conexões profundas através dos livros." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self';" />
+  
+  <!-- Favicon Personalizado com a Logo Oficial -->
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Offline -->
+  <link rel="stylesheet" href="css/all.min.css" />
+
+  <!-- Precompiled Tailwind CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#FAF6F0] text-ink antialiased selection:bg-indigo-vivid selection:text-white">
+
+  <!-- Barra Superior de Destaque -->
+  <div class="bg-indigo-deep text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-white/10">
+    <span class="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+    <span>Inscrições abertas para o próximo ciclo do <strong>Clube Através do Livro</strong></span>
+    <span class="hidden md:inline text-white/60">•</span>
+    <a href="#leituras" class="hidden md:inline text-gold-300 hover:text-white underline font-semibold transition-colors">Ver Leituras do Ciclo</a>
+  </div>
+
+  <!-- Header / Barra de Navegação -->
+  <header class="sticky top-0 z-40 bg-[#FAF6F0]/90 backdrop-blur-md border-b border-indigo-deep/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+      
+      <!-- Logo no Header (Oficial, sem cortes nem ícones genéricos) -->
+      <a href="#" class="flex items-center gap-3 group" aria-label="Página inicial do Através do Livro">
+        <img src="logo.jpg" alt="Através do Livro - Dani Valentim" class="h-12 sm:h-16 w-auto object-contain rounded-lg shadow-sm border border-gold-200/50 group-hover:scale-[1.02] transition-transform duration-300" />
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden lg:flex items-center gap-8 font-accent text-sm font-semibold text-ink-muted">
+        <a href="#clube" class="hover:text-indigo-vivid transition-colors">O Clube</a>
+        <a href="#leituras" class="hover:text-indigo-vivid transition-colors">Estante & Leituras</a>
+        <a href="#como-funciona" class="hover:text-indigo-vivid transition-colors">Como Funciona</a>
+        <a href="#beneficios" class="hover:text-indigo-vivid transition-colors">Benefícios</a>
+        <a href="#depoimentos" class="hover:text-indigo-vivid transition-colors">Depoimentos</a>
+        <a href="#faq" class="hover:text-indigo-vivid transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- Botão Direto de WhatsApp no Header -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="https://www.instagram.com/danielasvalentim/" target="_blank" rel="noopener noreferrer" class="text-ink-muted hover:text-[#E4405F] transition-colors text-xl p-2" title="Instagram @danielasvalentim" aria-label="Instagram de Daniela Valentim">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button type="button" data-whatsapp-msg="Olá Dani! Gostaria de me inscrever no Clube Através do Livro." class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-indigo-vivid text-white text-sm font-semibold hover:bg-indigo-royal transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0">
+          <i class="fa-brands fa-whatsapp text-lg text-emerald-300"></i>
+          <span>Quero Participar</span>
+        </button>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <button type="button" data-whatsapp-msg="Olá Dani! Gostaria de informações sobre o Clube Através do Livro." class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-600 text-white shadow-sm" aria-label="Falar no WhatsApp">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+        </button>
+        <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-xl bg-white border border-indigo-deep/10 text-indigo-deep hover:bg-indigo-50 transition-colors" aria-label="Abrir Menu de Navegação">
+          <i class="fa-solid fa-bars-staggered text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gaveta Mobile Drawer -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-ink/60 z-50 backdrop-blur-xs hidden transition-opacity duration-300"></div>
+  <aside id="mobile-drawer" class="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#FAF6F0] z-50 shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out border-l border-gold-200/60">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-indigo-deep/10">
+        <img src="logo.jpg" alt="Logo Através do Livro" class="h-10 w-auto object-contain rounded-md shadow-sm" />
+        <button id="mobile-menu-close-btn" type="button" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-ink-muted hover:text-indigo-vivid shadow-sm" aria-label="Fechar menu">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mt-8 font-accent font-semibold text-base text-ink">
+        <a href="#clube" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">O Clube</a>
+        <a href="#leituras" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">Estante & Leituras</a>
+        <a href="#como-funciona" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">Como Funciona</a>
+        <a href="#beneficios" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">Benefícios</a>
+        <a href="#depoimentos" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">Depoimentos</a>
+        <a href="#faq" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-indigo-50 hover:text-indigo-vivid transition-colors">Perguntas Frequentes</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-indigo-deep/10 space-y-4">
+      <a href="https://www.instagram.com/danielasvalentim/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-indigo-deep/5 text-ink-muted hover:text-[#E4405F] transition-colors">
+        <i class="fa-brands fa-instagram text-2xl text-[#E4405F]"></i>
+        <div>
+          <p class="text-xs text-ink-subtle uppercase tracking-wider font-semibold">Siga no Instagram</p>
+          <p class="text-sm font-bold text-ink">@danielasvalentim</p>
+        </div>
+      </a>
+
+      <button type="button" data-whatsapp-msg="Olá Dani! Gostaria de garantir minha vaga no Clube Através do Livro." class="w-full py-3.5 rounded-full bg-indigo-vivid text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
+        <i class="fa-brands fa-whatsapp text-lg text-emerald-300"></i>
+        <span>Garantir Vaga no Clube</span>
+      </button>
+      
+      <p class="text-center text-xs text-ink-subtle">
+        Atendimento: <strong>(11) 945549000</strong>
+      </p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION (Estilo Editorial Premium inspirado na referência) -->
+    <section class="relative px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-16 max-w-7xl mx-auto">
+      <div class="gradient-hero rounded-3xl p-8 sm:p-14 md:p-20 text-center text-white elevated-shadow relative overflow-hidden">
+        
+        <!-- Padrão geométrico suave no fundo -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 20% 30%, #ffffff 1.5px, transparent 1.5px); background-size: 32px 32px;"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-brand-500/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold-400/20 blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto space-y-6 sm:space-y-8">
+          
+          <!-- Badge Superior Elegante -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-gold-300 text-xs sm:text-sm font-semibold tracking-wide shadow-inner">
+            <i class="fa-solid fa-feather text-gold-400"></i>
+            <span>Curadoria e Mediação por Daniela Valentim</span>
+          </div>
+
+          <!-- Título Principal com Tipografia Editorial Playfair -->
+          <h1 class="font-editorial text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-balance">
+            Expanda sua mente através de conversas que transformam
+          </h1>
+
+          <!-- Subtítulo Acolhedor -->
+          <p class="font-sans text-base sm:text-xl md:text-2xl text-brand-100 max-w-2xl mx-auto font-normal leading-relaxed text-balance">
+            Um clube de leitura acolhedor, com cronogramas leves, encontros quinzenais ao vivo e reflexões profundas para quem deseja cultivar o hábito da leitura sem pressão.
+          </p>
+
+          <!-- Botões de Ação Dinâmicos -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 sm:pt-4">
+            <button type="button" data-whatsapp-msg="Olá Dani! Gostaria de me inscrever no Clube Através do Livro e garantir minha vaga." class="w-full sm:w-auto px-8 py-4 bg-gold-400 hover:bg-gold-300 text-indigo-deep rounded-full font-accent text-base font-bold shadow-float hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+              <i class="fa-brands fa-whatsapp text-xl text-indigo-deep"></i>
+              <span>Quero Entrar para o Clube</span>
+            </button>
+
+            <a href="#leituras" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-accent text-base font-semibold backdrop-blur-md hover:border-white transition-all duration-200 flex items-center justify-center gap-2">
+              <span>Conhecer as Leituras</span>
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Pílulas de Destaques Rápidos -->
+          <div class="pt-8 sm:pt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 border-t border-white/15 text-left">
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 sm:p-4 border border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-300 text-lg shrink-0">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <div>
+                <p class="text-xs text-brand-200 font-medium">Frequência</p>
+                <p class="text-sm font-bold text-white">Encontros Quinzenais</p>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 sm:p-4 border border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-300 text-lg shrink-0">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <div>
+                <p class="text-xs text-brand-200 font-medium">Formato</p>
+                <p class="text-sm font-bold text-white">Ao Vivo & Gravado</p>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 sm:p-4 border border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-300 text-lg shrink-0">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+              <div>
+                <p class="text-xs text-brand-200 font-medium">Comunidade</p>
+                <p class="text-sm font-bold text-white">Troca no WhatsApp</p>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 sm:p-4 border border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-300 text-lg shrink-0">
+                <i class="fa-solid fa-book-open-reader"></i>
+              </div>
+              <div>
+                <p class="text-xs text-brand-200 font-medium">Metodologia</p>
+                <p class="text-sm font-bold text-white">Caderno de Leitura</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: O CLUBE & A HISTÓRIA (Sobre Daniela Valentim) -->
+    <section id="clube" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        
+        <!-- Apresentação Visual Editorial com Logo e Moldura Elegante -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden elevated-shadow bg-gradient-to-b from-brand-100 to-parchment-light p-3 border border-gold-200/60">
+            <div class="rounded-2xl overflow-hidden bg-white relative aspect-[4/5] flex flex-col items-center justify-center p-8 text-center">
+              
+              <!-- Logo da Marca Centralizada com Destaque -->
+              <div class="relative z-10 w-full max-w-xs mb-6">
+                <img src="logo.jpg" alt="Daniela Valentim - Através do Livro" class="w-full h-auto object-contain rounded-xl shadow-md border border-gold-200/80" />
+              </div>
+
+              <div class="relative z-10 space-y-3">
+                <span class="inline-block px-3 py-1 rounded-full bg-brand-50 text-indigo-vivid text-xs font-bold tracking-wider uppercase">
+                  Idealizadora & Mediadora
+                </span>
+                <h3 class="font-editorial text-2xl font-bold text-ink">
+                  Daniela Valentim
+                </h3>
+                <p class="text-sm text-ink-muted leading-relaxed font-sans">
+                  "Acredito que os livros são espelhos da nossa alma. Quando lemos em conjunto, encontramos respostas que jamais descobriríamos na solidão."
+                </p>
+                <div class="pt-2">
+                  <a href="https://www.instagram.com/danielasvalentim/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-vivid hover:text-indigo-royal transition-colors">
+                    <i class="fa-brands fa-instagram text-lg text-[#E4405F]"></i>
+                    <span>@danielasvalentim</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Detalhe decorativo de fundo -->
+              <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-gold-200/40 rounded-full blur-2xl"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Narrativo e Filosofia do Projeto -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-indigo-royal text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-bookmark text-indigo-vivid"></i>
+            <span>Nossa Filosofia</span>
+          </div>
+
+          <h2 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-ink leading-tight">
+            Ler não precisa ser uma jornada solitária nem uma obrigação cansativa
+          </h2>
+
+          <p class="text-base sm:text-lg text-ink-muted leading-relaxed">
+            O <strong>Através do Livro</strong> nasceu do desejo genuíno de resgatar o prazer da leitura no cotidiano acelerado. Entre telas luminosas e compromissos sem fim, reservamos um espaço de calma para mergulhar em páginas que inquietam, ensinam e acolhem.
+          </p>
+
+          <p class="text-base sm:text-lg text-ink-muted leading-relaxed">
+            Aqui, cada obra é escolhida a dedo para provocar diálogos que ultrapassam a capa e a contracapa. Não se trata de uma análise acadêmica fria: nossos encontros são rodas de conversa intimistas onde cada leitora traz sua própria bagagem, dúvidas e percepções.
+          </p>
+
+          <!-- Diferenciais em Cartõezinhos -->
+          <div class="grid sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white border border-indigo-deep/5 ambient-shadow">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-indigo-vivid text-lg mb-3">
+                <i class="fa-solid fa-heart-circle-check"></i>
+              </div>
+              <h4 class="font-accent font-bold text-base text-ink mb-1">Ambiente Acolhedor</h4>
+              <p class="text-xs sm:text-sm text-ink-muted">Espaço livre de cobranças ou comparações de ritmo de leitura.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-indigo-deep/5 ambient-shadow">
+              <div class="w-10 h-10 rounded-xl bg-gold-50 flex items-center justify-center text-gold-600 text-lg mb-3">
+                <i class="fa-solid fa-compass"></i>
+              </div>
+              <h4 class="font-accent font-bold text-base text-ink mb-1">Mediação Guiada</h4>
+              <p class="text-xs sm:text-sm text-ink-muted">Perguntas reflexivas e condução fluida e estimulante por Daniela Valentim.</p>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <button type="button" data-whatsapp-msg="Olá Dani! Gostaria de saber como participar do próximo encontro do Através do Livro." class="px-7 py-3.5 rounded-full bg-indigo-vivid hover:bg-indigo-royal text-white font-accent font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg text-emerald-300"></i>
+              <span>Conversar com a Dani no WhatsApp</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- SEÇÃO: ESTANTE DE LEITURAS / CICLOS (Inspirada nos Cards da Imagem de Referência) -->
+    <section id="leituras" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-indigo-royal text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-book text-indigo-vivid"></i>
+          <span>Curadoria Ativa</span>
+        </div>
+        <h2 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-ink">
+          A Estante do Clube
+        </h2>
+        <p class="text-base sm:text-lg text-ink-muted">
+          Livros selecionados para desafiar ideias pré-concebidas, despertar emoções profundas e enriquecer sua visão de mundo.
+        </p>
+
+        <!-- Filtros Interativos por Categoria (Controlados por app.js sem scripts inline) -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 pt-4">
+          <button type="button" data-filter="all" class="filter-pill active px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold border border-indigo-deep/10 shadow-xs">
+            Todas as Obras
+          </button>
+          <button type="button" data-filter="desenvolvimento" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Desenvolvimento Pessoal
+          </button>
+          <button type="button" data-filter="ficcao" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Ficção & Sensibilidade
+          </button>
+          <button type="button" data-filter="filosofia" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Filosofia & Psicologia
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de Livros com Visual de Capas e Badges Pasteis -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+        <!-- Livro 1: Ciclo Atual Destaque -->
+        <article class="book-card bg-white rounded-3xl p-6 border-2 border-indigo-vivid/20 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="desenvolvimento">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold tracking-wide flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Leitura do Ciclo Atual
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Ciclo Ativo</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FCE7F3] via-[#EDE9FE] to-[#E0F2FE] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Autoconhecimento
+                </span>
+                <i class="fa-solid fa-star text-gold-500 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  A Coragem de Ser Imperfeito
+                </p>
+                <p class="text-xs text-ink-muted font-medium">Brené Brown</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-indigo-royal bg-white/70 px-2 py-0.5 rounded-full">Meta: 15 págs/dia</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              Uma reflexão profunda sobre como a vulnerabilidade não é uma fraqueza, mas sim o caminho mais corajoso para a autenticidade e conexões reais.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> 2 encontros online ao vivo</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Guia de perguntas & Caderno digital</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="A Coragem de Ser Imperfeito" class="w-full py-3 rounded-full bg-indigo-vivid hover:bg-indigo-royal text-white text-xs sm:text-sm font-accent font-bold transition-all shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-300"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro 2: Ficção & Sensibilidade -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="ficcao">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-brand-50 text-indigo-royal text-xs font-bold tracking-wide">
+                Próximo Ciclo
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Inscrições Abertas</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#EDE9FE] via-[#F3E8FF] to-[#FAF5FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Ficção Poética
+                </span>
+                <i class="fa-solid fa-bookmark text-brand-400 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  Pequena Coreografia do Adeus
+                </p>
+                <p class="text-xs text-ink-muted font-medium">Aline Bei</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-indigo-royal bg-white/70 px-2 py-0.5 rounded-full">Formato Híbrido</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              A trajetória sensível do amadurecimento feminino marcada pelas dores do abandono parental e a reconstrução da própria voz na vida adulta.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Discussão de escrita criativa</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Material sobre prosa em versos</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="Pequena Coreografia do Adeus" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Garantir Vaga no Ciclo</span>
+          </button>
+        </article>
+
+        <!-- Livro 3: Filosofia & Psicologia -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="filosofia">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-gold-50 text-gold-700 text-xs font-bold tracking-wide">
+                Clássico Moderno
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Biblioteca do Clube</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FEF9C3] via-[#FEF3C7] to-[#FDE68A] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Logoterapia & Vida
+                </span>
+                <i class="fa-solid fa-heart text-amber-600 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  Em Busca de Sentido
+                </p>
+                <p class="text-xs text-ink-muted font-medium">Viktor Frankl</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-full">Obra Aclamada</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              O relato comovente e a teoria psicológica que ensina como o ser humano pode encontrar propósito mesmo nas circunstâncias mais difíceis da vida.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Gravação integral disponível</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Análise psicológica estruturada</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="Em Busca de Sentido" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Acessar no Clube</span>
+          </button>
+        </article>
+
+        <!-- Livro 4: Ficção Clássica -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="ficcao">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold tracking-wide">
+                Sensibilidade & História
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Edição Especial</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#E0F2FE] via-[#BAE6FD] to-[#E0E7FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Ficção Histórica
+                </span>
+                <i class="fa-solid fa-feather text-sky-600 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  A Menina que Roubava Livros
+                </p>
+                <p class="text-xs text-ink-muted font-medium">Markus Zusak</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-sky-900 bg-white/70 px-2 py-0.5 rounded-full">Poder das Palavras</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              Narrado pela Morte, o livro acompanha Liesel Meminger e seu amor incondicional pelos livros em plena Alemanha da Segunda Guerra Mundial.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Sessão de debate temático</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Análise da figura da narradora</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="A Menina que Roubava Livros" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro 5: Filosofia / Arquétipos -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="filosofia">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold tracking-wide">
+                Arquétipos Femininos
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Jornada Guiada</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FFE4E6] via-[#FCE7F3] to-[#F3E8FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Psicologia Junguiana
+                </span>
+                <i class="fa-solid fa-moon text-rose-500 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  Mulheres que Correm com os Lobos
+                </p>
+                <p class="text-xs text-ink-muted font-medium">Clarissa Pinkola Estés</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-rose-900 bg-white/70 px-2 py-0.5 rounded-full">Mitos & Contos</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              A investigação dos mitos ancestrais que convidam as mulheres a resgatarem a sua natureza instintiva, criativa e intuitiva mais profunda.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontros por capítulos-chave</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Mapeamento arquetípico</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="Mulheres que Correm com os Lobos" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro 6: Hábitos & Transformação -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="desenvolvimento">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold tracking-wide">
+                Hábitos & Prática
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Prática Diária</span>
+            </div>
+
+            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#CCFBF1] via-[#E0F2FE] to-[#EDE9FE] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
+              <div class="flex justify-between items-start">
+                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
+                  Rotina & Foco
+                </span>
+                <i class="fa-solid fa-bolt text-teal-600 text-sm"></i>
+              </div>
+              <div class="space-y-1">
+                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
+                  Hábitos Atômicos
+                </p>
+                <p class="text-xs text-ink-muted font-medium">James Clear</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] font-semibold text-teal-900 bg-white/70 px-2 py-0.5 rounded-full">1% Melhor ao Dia</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">
+              Um método comprovado para construir bons hábitos e eliminar os ruins, aplicando pequenas mudanças que trazem resultados extraordinários.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Plano de aplicação pessoal</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Ferramenta de rastreamento de leitura</li>
+            </ul>
+          </div>
+
+          <button type="button" data-book-join="Hábitos Atômicos" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+    <!-- SEÇÃO: COMO FUNCIONA (Os 4 Passos da Metodologia com Tons Pasteis da Referência) -->
+    <section id="como-funciona" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-parchment-light/60 rounded-3xl my-8 border border-gold-200/50">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-indigo-royal text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-route text-indigo-vivid"></i>
+          <span>Passo a Passo</span>
+        </div>
+        <h2 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-ink">
+          Como Funciona o Clube Através do Livro
+        </h2>
+        <p class="text-base sm:text-lg text-ink-muted">
+          Uma rotina leve e estruturada para transformar a leitura em um momento de prazer e conexão.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Passo 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-indigo-deep/5 elevated-shadow flex flex-col justify-between relative group hover:border-indigo-vivid/30 transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center font-editorial text-2xl font-bold mb-4 shadow-sm group-hover:scale-110 transition-transform">
+              1
+            </div>
+            <h3 class="font-editorial text-xl font-bold text-ink mb-2">Curadoria & Cronograma</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              A cada ciclo, Daniela seleciona uma obra e envia o cronograma leve de leitura, dividido em metas de apenas 15 a 20 páginas por dia.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-indigo-deep/5 text-xs font-semibold text-pink-600 flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Sem pressa ou cobrança
+          </div>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-indigo-deep/5 elevated-shadow flex flex-col justify-between relative group hover:border-indigo-vivid/30 transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-editorial text-2xl font-bold mb-4 shadow-sm group-hover:scale-110 transition-transform">
+              2
+            </div>
+            <h3 class="font-editorial text-xl font-bold text-ink mb-2">Guia & Perguntas</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Você recebe o Caderno Digital de Leitura com pontos de atenção, contextualização do autor e perguntas norteadoras para anotar seus pensamentos.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-indigo-deep/5 text-xs font-semibold text-purple-600 flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Caderno em PDF exclusivo
+          </div>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="bg-white rounded-2xl p-6 border border-indigo-deep/5 elevated-shadow flex flex-col justify-between relative group hover:border-indigo-vivid/30 transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-editorial text-2xl font-bold mb-4 shadow-sm group-hover:scale-110 transition-transform">
+              3
+            </div>
+            <h3 class="font-editorial text-xl font-bold text-ink mb-2">Encontros Ao Vivo</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Rodas de conversa virtuais quinzenais via Zoom com Dani Valentim. Um espaço acolhedor para compartilhar impressões e ouvir perspectivas únicas.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-indigo-deep/5 text-xs font-semibold text-blue-600 flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Gravados para rever depois
+          </div>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="bg-white rounded-2xl p-6 border border-indigo-deep/5 elevated-shadow flex flex-col justify-between relative group hover:border-indigo-vivid/30 transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-editorial text-2xl font-bold mb-4 shadow-sm group-hover:scale-110 transition-transform">
+              4
+            </div>
+            <h3 class="font-editorial text-xl font-bold text-ink mb-2">Comunidade no WhatsApp</h3>
+            <p class="text-sm text-ink-muted leading-relaxed">
+              Acesso ao grupo exclusivo de leitoras para trocar citações, reflexões do dia a dia, indicações complementares e apoio constante.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-indigo-deep/5 text-xs font-semibold text-amber-600 flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> Trocas diárias afetuosas
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO: BENEFÍCIOS EXCLUSIVOS -->
+    <section id="beneficios" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-indigo-royal text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gem text-indigo-vivid"></i>
+          <span>Por Que Participar?</span>
+        </div>
+        <h2 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-ink">
+          Benefícios Que Você Terá no Clube
+        </h2>
+        <p class="text-base sm:text-lg text-ink-muted">
+          Muito além de ler um livro: uma experiência completa que transforma a sua relação com a cultura e com você mesma.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-vivid flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Fim do Bloqueio de Leitura</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Chega de abandonar livros pela metade. A sensação de progresso diário e o compromisso leve com o grupo devolvem a sua constância.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-gold-50 text-gold-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Espaço Seguro e Descontraído</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Nenhuma opinião é julgada. Você tem a liberdade de falar o que sentiu, perguntar ou simplesmente ouvir com sua xícara de chá.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Acesso às Gravações</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Se teve um imprevisto na data do encontro, fique tranquila: todos os debates são gravados em alta definição para assistir quando quiser.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-feather-pointed"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Material Complementar</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Cadernos reflexivos, cronogramas visuais, artigos e podcasts recomendados por Daniela Valentim para expandir a discussão.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-user-group"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Comunidade de Mulheres Reais</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Faça amizades com pessoas que vibram na mesma frequência que você, apaixonadas por histórias, empatia e desenvolvimento pessoal.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-indigo-deep/5 ambient-shadow hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <h3 class="font-accent text-lg font-bold text-ink mb-2">Mimos & Sorteios Especiais</h3>
+          <p class="text-sm text-ink-muted leading-relaxed">
+            Membros ativos do clube participam de sorteios de livros físicos, marcadores artesanais e surpresas literárias a cada encerramento de ciclo.
+          </p>
+        </div>
+
+      </div>
+    </section>
+    <!-- SEÇÃO: DEPOIMENTOS (Avaliações Reais e Curadas de Membros do Clube) -->
+    <section id="depoimentos" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-brand-50/50 rounded-3xl border border-brand-100">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-indigo-royal text-xs font-bold uppercase tracking-wider shadow-xs">
+          <i class="fa-solid fa-star text-gold-500"></i>
+          <span>Vozes de Quem Já Participa</span>
+        </div>
+        <h2 class="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-ink">
+          O Que Nossas Leitoras Compartilham
+        </h2>
+        <p class="text-base sm:text-lg text-ink-muted">
+          A melhor parte do Clube Através do Livro é testemunhar o quanto essas conversas tocam vidas reais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Depoimento 1 -->
+        <div class="bg-white rounded-3xl p-7 border border-gold-200/60 elevated-shadow flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 text-sm mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm sm:text-base text-ink leading-relaxed italic mb-6">
+              "Participar do Através do Livro foi o melhor presente que dei a mim mesma este ano. A Dani tem uma sensibilidade ímpar para conduzir as conversas. Mesmo os temas mais difíceis se tornam momentos de pura cura e afeto."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-indigo-deep/5">
+            <div class="w-10 h-10 rounded-full bg-brand-100 text-indigo-royal flex items-center justify-center font-bold text-sm">
+              MS
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Mariana Souza</p>
+              <p class="text-xs text-ink-subtle">Membro há 3 ciclos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="bg-white rounded-3xl p-7 border border-gold-200/60 elevated-shadow flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 text-sm mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm sm:text-base text-ink leading-relaxed italic mb-6">
+              "Eu estava há mais de dois anos sem conseguir terminar nenhum livro. Com o cronograma leve de 15 páginas e os encontros quinzenais, já li quatro obras incríveis em quatro meses! Mudou completamente minha rotina noturna."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-indigo-deep/5">
+            <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-bold text-sm">
+              BL
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Beatriz Lima</p>
+              <p class="text-xs text-ink-subtle">Membro ativa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="bg-white rounded-3xl p-7 border border-gold-200/60 elevated-shadow flex flex-col justify-between relative">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 text-sm mb-4">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm sm:text-base text-ink leading-relaxed italic mb-6">
+              "Os encontros são o momento mais esperado da minha quinzena. Um verdadeiro refúgio de conversa inteligente e acolhimento. As perguntas do caderno da Dani nos fazem enxergar coisas que passariam despercebidas."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-indigo-deep/5">
+            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm">
+              CR
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Camila Ribeiro</p>
+              <p class="text-xs text-ink-subtle">Membro há 2 ciclos</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO: PERGUNTAS FREQUENTES (FAQ Accordion Interativo) -->
+    <section id="faq" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-indigo-royal text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-circle-question text-indigo-vivid"></i>
+          <span>Tire Suas Dúvidas</span>
+        </div>
+        <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-ink">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-base text-ink-muted">
+          Tudo o que você precisa saber antes de se juntar ao nosso círculo de leitura.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Pergunta 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-indigo-deep/10 ambient-shadow overflow-hidden transition-all">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-accent font-bold text-base sm:text-lg text-ink hover:text-indigo-vivid transition-colors">
+            <span>Não tenho muito tempo livre no dia a dia. Vou conseguir acompanhar?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-sm text-ink-subtle transition-transform duration-200 shrink-0"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 pt-1 text-sm sm:text-base text-ink-muted leading-relaxed border-t border-indigo-deep/5">
+            Com certeza! O método do Através do Livro foi desenhado exatamente para pessoas com rotinas cheias. As metas são de 15 a 20 páginas por dia (cerca de 20 minutos de leitura). Além disso, não há punições ou cobranças caso você atrase um capítulo.
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-indigo-deep/10 ambient-shadow overflow-hidden transition-all">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-accent font-bold text-base sm:text-lg text-ink hover:text-indigo-vivid transition-colors">
+            <span>E se eu não puder participar de um encontro ao vivo?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-sm text-ink-subtle transition-transform duration-200 shrink-0"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 pt-1 text-sm sm:text-base text-ink-muted leading-relaxed border-t border-indigo-deep/5">
+            Todos os encontros são gravados na íntegra em alta definição e disponibilizados na área de membros em até 24 horas. Você pode assistir no seu ritmo e compartilhar seus comentários diretamente no grupo de WhatsApp.
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-indigo-deep/10 ambient-shadow overflow-hidden transition-all">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-accent font-bold text-base sm:text-lg text-ink hover:text-indigo-vivid transition-colors">
+            <span>Sou tímida. Preciso abrir a câmera e falar obrigatoriamente?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-sm text-ink-subtle transition-transform duration-200 shrink-0"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 pt-1 text-sm sm:text-base text-ink-muted leading-relaxed border-t border-indigo-deep/5">
+            De forma alguma! Você é super bem-vinda para participar apenas ouvindo, digitando suas reflexões no chat ou abrindo a câmera apenas quando se sentir confortável. Respeitamos 100% o tempo e o estilo de cada pessoa.
+          </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-indigo-deep/10 ambient-shadow overflow-hidden transition-all">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-accent font-bold text-base sm:text-lg text-ink hover:text-indigo-vivid transition-colors">
+            <span>O livro físico ou digital está incluso na inscrição?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-sm text-ink-subtle transition-transform duration-200 shrink-0"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 pt-1 text-sm sm:text-base text-ink-muted leading-relaxed border-t border-indigo-deep/5">
+            O livro é adquirido individualmente no formato que você preferir (físico, Kindle ou e-book). Enviamos links com os melhores preços em livrarias parceiras com antecedência. Todos os materiais complementares, cadernos de perguntas e gravações estão inclusos no clube.
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="faq-item bg-white rounded-2xl border border-indigo-deep/10 ambient-shadow overflow-hidden transition-all">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-accent font-bold text-base sm:text-lg text-ink hover:text-indigo-vivid transition-colors">
+            <span>Como faço para me inscrever e garantir minha vaga?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-sm text-ink-subtle transition-transform duration-200 shrink-0"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 pt-1 text-sm sm:text-base text-ink-muted leading-relaxed border-t border-indigo-deep/5">
+            Basta clicar em qualquer um dos botões desta página para falar diretamente com a Dani Valentim pelo WhatsApp oficial <strong>(11) 945549000</strong>. Ela enviará as informações do ciclo, opções de pagamento e o link para a comunidade.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO FINAL: CTA IMPACTANTE (Sem mapa/endereço físico conforme as regras condicionais) -->
+    <section id="contato" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="bg-indigo-deep rounded-3xl p-8 sm:p-14 md:p-16 text-center text-white elevated-shadow relative overflow-hidden border border-white/10">
+        
+        <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-gold-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-gold-300 text-xs font-semibold uppercase tracking-wider">
+            <i class="fa-solid fa-sparkles text-gold-400"></i>
+            <span>Seu Próximo Capítulo</span>
+          </div>
+
+          <h2 class="font-editorial text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-balance">
+            Pronta para viver conversas memoráveis e cultivar sua paixão pelos livros?
+          </h2>
+
+          <p class="text-base sm:text-xl text-brand-100 max-w-2xl mx-auto font-normal leading-relaxed">
+            As vagas para cada ciclo são limitadas para garantir a intimidade e a qualidade das trocas. Garanta o seu lugar no círculo de leitoras.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button type="button" data-whatsapp-msg="Olá Dani! Quero garantir minha vaga no Clube Através do Livro agora mesmo." class="w-full sm:w-auto px-9 py-4 bg-gold-400 hover:bg-gold-300 text-indigo-deep rounded-full font-accent text-base font-bold shadow-float hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3">
+              <i class="fa-brands fa-whatsapp text-2xl text-indigo-deep"></i>
+              <span>Garantir Vaga pelo WhatsApp</span>
+            </button>
+
+            <a href="https://www.instagram.com/danielasvalentim/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-accent text-base font-semibold transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-instagram text-xl text-[#E4405F]"></i>
+              <span>Seguir no Instagram</span>
+            </a>
+          </div>
+
+          <!-- Informações de Contato Formatadas Continuamente -->
+          <div class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-sm text-brand-200">
+            <div class="flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+              <span>WhatsApp: <strong>(11) 945549000</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-brands fa-instagram text-pink-400 text-base"></i>
+              <span>Instagram: <strong>@danielasvalentim</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-globe text-gold-300 text-base"></i>
+              <span>Encontros Online em Todo o Brasil</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ COMPLETO -->
+  <footer class="bg-white border-t border-indigo-deep/10 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Coluna 1: Logo & Missão -->
+        <div class="md:col-span-5 space-y-4">
+          <a href="#" class="inline-block">
+            <img src="logo.jpg" alt="Através do Livro - Dani Valentim" class="h-14 w-auto object-contain rounded-lg border border-gold-200/50 shadow-xs" />
+          </a>
+          <p class="text-sm text-ink-muted leading-relaxed max-w-sm">
+            Clube de leitura com curadoria e mediação de Daniela Valentim. Encontros quinzenais para expandir horizontes e transformar leituras em conexões genuínas.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="md:col-span-3 space-y-3 font-accent text-sm font-semibold text-ink-muted">
+          <p class="text-xs font-bold text-ink uppercase tracking-wider mb-4">Navegação</p>
+          <div><a href="#clube" class="hover:text-indigo-vivid transition-colors">O Clube & Dani</a></div>
+          <div><a href="#leituras" class="hover:text-indigo-vivid transition-colors">Estante & Leituras</a></div>
+          <div><a href="#como-funciona" class="hover:text-indigo-vivid transition-colors">Como Funciona</a></div>
+          <div><a href="#beneficios" class="hover:text-indigo-vivid transition-colors">Benefícios Exclusivos</a></div>
+          <div><a href="#depoimentos" class="hover:text-indigo-vivid transition-colors">Depoimentos</a></div>
+          <div><a href="#faq" class="hover:text-indigo-vivid transition-colors">Perguntas Frequentes</a></div>
+        </div>
+
+        <!-- Coluna 3: Atendimento e Redes -->
+        <div class="md:col-span-4 space-y-3">
+          <p class="text-xs font-bold text-ink uppercase tracking-wider mb-4 font-accent">Atendimento Oficial</p>
+          
+          <a href="#" data-whatsapp-msg="Olá Dani! Gostaria de falar com você sobre o Clube Através do Livro." class="flex items-center gap-3 p-3 rounded-2xl bg-[#FAF6F0] hover:bg-brand-50 border border-indigo-deep/5 transition-colors group">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg group-hover:scale-105 transition-transform">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <p class="text-xs text-ink-subtle font-medium">WhatsApp Direto</p>
+              <p class="text-sm font-bold text-ink">(11) 945549000</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/danielasvalentim/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-2xl bg-[#FAF6F0] hover:bg-brand-50 border border-indigo-deep/5 transition-colors group">
+            <div class="w-10 h-10 rounded-xl bg-pink-50 text-[#E4405F] flex items-center justify-center text-lg group-hover:scale-105 transition-transform">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div>
+              <p class="text-xs text-ink-subtle font-medium">Instagram Oficial</p>
+              <p class="text-sm font-bold text-ink">@danielasvalentim</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Linha de Direitos Autorais -->
+      <div class="pt-8 mt-12 border-t border-indigo-deep/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-subtle">
+        <p>© 2026 Através do Livro por Daniela Valentim. Todos os direitos reservados.</p>
+        <p class="flex items-center gap-1.5">
+          <span>Feito com</span>
+          <i class="fa-solid fa-heart text-rose-500 text-[10px]"></i>
+          <span>para amantes da literatura</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DE WHATSAPP -->
+  <aside aria-label="Atendimento WhatsApp" class="fixed bottom-6 right-6 z-40">
+    <button type="button" data-whatsapp-msg="Olá Dani! Estou no site do Clube Através do Livro e gostaria de tirar dúvidas." class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl hover:shadow-2xl flex items-center justify-center text-2xl hover:scale-110 active:scale-95 transition-all duration-200 relative group" aria-label="Abrir conversa no WhatsApp com Dani Valentim">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full border-2 border-white animate-ping"></span>
+      <span class="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full border-2 border-white"></span>
+      
+      <!-- Tooltip elegante no hover -->
+      <span class="absolute right-16 px-3 py-1.5 rounded-xl bg-ink text-white text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md pointer-events-none">
+        Falar com a Dani
+      </span>
+    </button>
+  </aside>
+
+  <!-- Scripts Externos (Zero scripts inline para conformidade total com script-src 'self') -->
+  <script src="js/app.js"></script>
+</body>
+</html>
