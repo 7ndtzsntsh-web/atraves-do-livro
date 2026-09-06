@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const WHATSAPP_NUMBER = "5511945549000";
 
   function openWhatsApp(message) {
