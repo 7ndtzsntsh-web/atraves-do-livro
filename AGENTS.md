@@ -1,0 +1,57 @@
+# Diretrizes Permanentes de Desenvolvimento e Segurança do Projeto
+
+Este arquivo estabelece os padrões e regras obrigatórias que **devem ser seguidos em todos os deploys e modificações de código** deste projeto, sem exceções.
+
+---
+
+## 1. 🛡️ Segurança HTTP & Content Security Policy (Padrão Obrigatório)
+
+### 1.1. Arquivo `vercel.json`
+O arquivo `vercel.json` deve sempre conter as seguintes configurações para evitar falhas no Mozilla Observatory e em scanners de segurança:
+- **Codificação**: Padrão RFC 8259 estrito (UTF-8 puro **sem Byte Order Mark / BOM**).
+- **Mapeamento de Rotas**: O bloco de cabeçalhos deve cobrir explicitamente tanto a rota raiz quanto as sub-rotas:
+  - `"source": "/(.*)"`
+  - `"source": "/"`
+- **Cabeçalhos Obrigatórios**:
+  1. **Content-Security-Policy**:
+     ```http
+     default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';
+     ```
+     *(A diretiva `frame-ancestors 'none'` é obrigatória para prevenção contra clickjacking).*
+  2. **Strict-Transport-Security**: `max-age=63072000; includeSubDomains; preload`
+  3. **X-Content-Type-Options**: `nosniff`
+  4. **X-Frame-Options**: `DENY`
+  5. **Referrer-Policy**: `strict-origin-when-cross-origin`
+  6. **Cross-Origin-Opener-Policy**: `same-origin-allow-popups`
+  7. **Cross-Origin-Resource-Policy**: `cross-origin`
+  8. **Permissions-Policy**: `camera=(), microphone=(), geolocation=()`
+
+### 1.2. Zero Scripts Inline
+- É **estritamente proibido** o uso de tags `<script>` inline ou atributos de eventos como `onclick`, `onsubmit`, `onload` no HTML.
+- Todo código JavaScript deve residir exclusivamente em arquivos externos (ex: `js/app.js`), compatível com `script-src 'self'`.
+
+---
+
+## 2. 📖 Regras de Negócio e Conteúdo
+
+### 2.1. Intervalo de Ciclos e Encontros
+- O intervalo correto dos encontros e ciclos é de **30 em 30 dias** (mensal).
+- Nunca utilizar intervalos de 15 dias ou quinzenais.
+
+### 2.2. Formatação Numérica e Contatos
+- Telefones e dados numéricos devem ser exibidos de forma agrupada e contínua, sem separadores desnecessários (exemplo: `(11) 945549000`).
+- Botões de ação devem disparar links dinâmicos de WhatsApp utilizando `encodeURIComponent` com mensagem personalizada e o número oficial (`5511945549000`).
+
+### 2.3. Seções Inteligentes
+- Se não for fornecido endereço físico ou localização geográfica, omitir completamente blocos de mapas ou endereços, adaptando o design ao conteúdo disponível.
+
+### 2.4. Identidade Visual e Ativos
+- A logo oficial do cliente deve ser exibida no cabeçalho com proporções preservadas e sem cortes.
+- A logo deve ser configurada como favicon do site.
+
+---
+
+## 3. ✅ Checklist de Qualidade antes de Cada Commit
+1. Verificar integridade do JSON de configuração (`JSON.parse`, sem caracteres BOM).
+2. Auditar que nenhum script inline foi introduzido.
+3. Confirmar que todas as instruções do prompt foram integralmente contempladas.
