@@ -1,4 +1,4 @@
-﻿# Através do Livro — Clube de Leitura com Dani Valentim
+# Através do Livro — Clube de Leitura com Dani Valentim
 
 Landing page oficial de alta conversão para o **Clube Através do Livro**, idealizado e mediado por **Daniela Valentim**.
 
