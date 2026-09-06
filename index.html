@@ -304,291 +304,701 @@
           Livros selecionados para desafiar ideias pré-concebidas, despertar emoções profundas e enriquecer sua visão de mundo.
         </p>
 
-        <!-- Filtros Interativos por Categoria (Controlados por app.js sem scripts inline) -->
+        <!-- Filtros Interativos por Categoria (Todas as obras, Suspense, Autoajuda e Romance e Ficção) -->
         <div class="flex flex-wrap justify-center gap-2 sm:gap-3 pt-4">
-          <button type="button" data-filter="all" class="filter-pill active px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold border border-indigo-deep/10 shadow-xs">
-            Todas as Obras
+          <button type="button" data-filter="all" class="filter-pill active px-5 py-2.5 rounded-full text-xs sm:text-sm font-accent font-semibold border border-indigo-deep/10 shadow-xs">
+            Todas as obras
           </button>
-          <button type="button" data-filter="desenvolvimento" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
-            Desenvolvimento Pessoal
+          <button type="button" data-filter="suspense" class="filter-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Suspense
           </button>
-          <button type="button" data-filter="ficcao" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
-            Ficção & Sensibilidade
+          <button type="button" data-filter="autoajuda" class="filter-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Autoajuda
           </button>
-          <button type="button" data-filter="filosofia" class="filter-pill px-4 py-2 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
-            Filosofia & Psicologia
+          <button type="button" data-filter="romance-ficcao" class="filter-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-accent font-semibold bg-white text-ink-muted border border-indigo-deep/10 hover:border-indigo-vivid transition-colors shadow-xs">
+            Romance e Ficção
           </button>
         </div>
       </div>
 
-      <!-- Grid de Livros com Visual de Capas e Badges Pasteis -->
+      <!-- Grid de Livros com Visual de Capas Oficiais e Badges Pasteis -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-        <!-- Livro 1: Ciclo Atual Destaque -->
-        <article class="book-card bg-white rounded-3xl p-6 border-2 border-indigo-vivid/20 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="desenvolvimento">
+        <!-- Livro: A Lista de Convidados -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="suspense">
           <div>
+            <!-- Header do Card com Categoria e Status -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold tracking-wide flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Leitura do Ciclo Atual
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-amber-50 text-amber-800 border-amber-200">
+                Suspense
               </span>
               <span class="text-xs font-semibold text-ink-subtle">Ciclo Ativo</span>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FCE7F3] via-[#EDE9FE] to-[#E0F2FE] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Autoconhecimento
-                </span>
-                <i class="fa-solid fa-star text-gold-500 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  A Coragem de Ser Imperfeito
-                </p>
-                <p class="text-xs text-ink-muted font-medium">Brené Brown</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-indigo-royal bg-white/70 px-2 py-0.5 rounded-full">Meta: 15 págs/dia</span>
-              </div>
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/a-lista-de-convidados.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10096112-L.jpg" 
+                alt="Capa oficial do livro A Lista de Convidados" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             </div>
 
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              Uma reflexão profunda sobre como a vulnerabilidade não é uma fraqueza, mas sim o caminho mais corajoso para a autenticidade e conexões reais.
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Suspense Psicológico
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                A Lista de Convidados
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Lucy Foley
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Em uma ilha remota na costa da Irlanda, convidados se reúnem para um casamento luxuoso até que uma tempestade violenta isola o local e um assassinato misterioso vem à tona.
             </p>
 
             <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
               <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Guia de perguntas & Caderno digital</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
             </ul>
           </div>
 
-          <button type="button" data-book-join="A Coragem de Ser Imperfeito" class="w-full py-3 rounded-full bg-indigo-vivid hover:bg-indigo-royal text-white text-xs sm:text-sm font-accent font-bold transition-all shadow-md flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base text-emerald-300"></i>
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="A Lista de Convidados" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
             <span>Participar Desta Leitura</span>
           </button>
         </article>
 
-        <!-- Livro 2: Ficção & Sensibilidade -->
-        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="ficcao">
+        <!-- Livro: A Garota no Trem -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="suspense">
           <div>
+            <!-- Header do Card com Categoria e Status -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-brand-50 text-indigo-royal text-xs font-bold tracking-wide">
-                Próximo Ciclo
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-amber-50 text-amber-800 border-amber-200">
+                Suspense
               </span>
               <span class="text-xs font-semibold text-ink-subtle">Inscrições Abertas</span>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#EDE9FE] via-[#F3E8FF] to-[#FAF5FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Ficção Poética
-                </span>
-                <i class="fa-solid fa-bookmark text-brand-400 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  Pequena Coreografia do Adeus
-                </p>
-                <p class="text-xs text-ink-muted font-medium">Aline Bei</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-indigo-royal bg-white/70 px-2 py-0.5 rounded-full">Formato Híbrido</span>
-              </div>
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/a-garota-no-trem.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/13523038-L.jpg" 
+                alt="Capa oficial do livro A Garota no Trem" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             </div>
 
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              A trajetória sensível do amadurecimento feminino marcada pelas dores do abandono parental e a reconstrução da própria voz na vida adulta.
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Mistério & Tensão
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                A Garota no Trem
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Paula Hawkins
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Todos os dias Rachel pega o mesmo trem e observa a vida de um casal aparentemente perfeito através da janela, até presenciar algo chocante que a envolve em uma teia perigosa.
             </p>
 
             <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Discussão de escrita criativa</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Material sobre prosa em versos</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
             </ul>
           </div>
 
-          <button type="button" data-book-join="Pequena Coreografia do Adeus" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
-            <span>Garantir Vaga no Ciclo</span>
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="A Garota no Trem" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
           </button>
         </article>
 
-        <!-- Livro 3: Filosofia & Psicologia -->
-        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="filosofia">
+        <!-- Livro: Casamento Perfeito -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="suspense">
           <div>
+            <!-- Header do Card com Categoria e Status -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-gold-50 text-gold-700 text-xs font-bold tracking-wide">
-                Clássico Moderno
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-amber-50 text-amber-800 border-amber-200">
+                Suspense
               </span>
               <span class="text-xs font-semibold text-ink-subtle">Biblioteca do Clube</span>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FEF9C3] via-[#FEF3C7] to-[#FDE68A] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Logoterapia & Vida
-                </span>
-                <i class="fa-solid fa-heart text-amber-600 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  Em Busca de Sentido
-                </p>
-                <p class="text-xs text-ink-muted font-medium">Viktor Frankl</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-full">Obra Aclamada</span>
-              </div>
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/casamento-perfeito.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10833503-L.jpg" 
+                alt="Capa oficial do livro Casamento Perfeito" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             </div>
 
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              O relato comovente e a teoria psicológica que ensina como o ser humano pode encontrar propósito mesmo nas circunstâncias mais difíceis da vida.
-            </p>
-
-            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Gravação integral disponível</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Análise psicológica estruturada</li>
-            </ul>
-          </div>
-
-          <button type="button" data-book-join="Em Busca de Sentido" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
-            <span>Acessar no Clube</span>
-          </button>
-        </article>
-
-        <!-- Livro 4: Ficção Clássica -->
-        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="ficcao">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold tracking-wide">
-                Sensibilidade & História
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Thriller Jurídico
               </span>
-              <span class="text-xs font-semibold text-ink-subtle">Edição Especial</span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Casamento Perfeito
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Jeneva Rose
+              </p>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#E0F2FE] via-[#BAE6FD] to-[#E0E7FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Ficção Histórica
-                </span>
-                <i class="fa-solid fa-feather text-sky-600 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  A Menina que Roubava Livros
-                </p>
-                <p class="text-xs text-ink-muted font-medium">Markus Zusak</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-sky-900 bg-white/70 px-2 py-0.5 rounded-full">Poder das Palavras</span>
-              </div>
-            </div>
-
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              Narrado pela Morte, o livro acompanha Liesel Meminger e seu amor incondicional pelos livros em plena Alemanha da Segunda Guerra Mundial.
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Sarah Morgan é uma advogada de sucesso que se vê diante do maior desafio da sua carreira: defender o próprio marido, acusado de assassinar a amante.
             </p>
 
             <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Sessão de debate temático</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Análise da figura da narradora</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
             </ul>
           </div>
 
-          <button type="button" data-book-join="A Menina que Roubava Livros" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Casamento Perfeito" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
             <span>Participar Desta Leitura</span>
           </button>
         </article>
 
-        <!-- Livro 5: Filosofia / Arquétipos -->
-        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="filosofia">
+        <!-- Livro: O ano em que disse SIM -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="autoajuda">
           <div>
+            <!-- Header do Card com Categoria e Status -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold tracking-wide">
-                Arquétipos Femininos
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-emerald-50 text-emerald-800 border-emerald-200">
+                Autoajuda
               </span>
-              <span class="text-xs font-semibold text-ink-subtle">Jornada Guiada</span>
+              <span class="text-xs font-semibold text-ink-subtle">Próxima Leitura</span>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#FFE4E6] via-[#FCE7F3] to-[#F3E8FF] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Psicologia Junguiana
-                </span>
-                <i class="fa-solid fa-moon text-rose-500 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  Mulheres que Correm com os Lobos
-                </p>
-                <p class="text-xs text-ink-muted font-medium">Clarissa Pinkola Estés</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-rose-900 bg-white/70 px-2 py-0.5 rounded-full">Mitos & Contos</span>
-              </div>
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/o-ano-em-que-disse-sim.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10691214-L.jpg" 
+                alt="Capa oficial do livro O ano em que disse SIM" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             </div>
 
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              A investigação dos mitos ancestrais que convidam as mulheres a resgatarem a sua natureza instintiva, criativa e intuitiva mais profunda.
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Coragem & Mudança
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                O ano em que disse SIM
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Shonda Rhimes
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              A aclamada criadora de Grey's Anatomy relata com humor e sensibilidade como dizer "sim" para os desafios que a apavoravam transformou sua vida e sua autoconfiança.
             </p>
 
             <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontros por capítulos-chave</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Mapeamento arquetípico</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
             </ul>
           </div>
 
-          <button type="button" data-book-join="Mulheres que Correm com os Lobos" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="O ano em que disse SIM" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
             <span>Participar Desta Leitura</span>
           </button>
         </article>
 
-        <!-- Livro 6: Hábitos & Transformação -->
-        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 ambient-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5" data-category="desenvolvimento">
+        <!-- Livro: Deixa Pra Lá (A Teoria Let Them) -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="autoajuda">
           <div>
+            <!-- Header do Card com Categoria e Status -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold tracking-wide">
-                Hábitos & Prática
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-emerald-50 text-emerald-800 border-emerald-200">
+                Autoajuda
               </span>
-              <span class="text-xs font-semibold text-ink-subtle">Prática Diária</span>
+              <span class="text-xs font-semibold text-ink-subtle">Leitura em Alta</span>
             </div>
 
-            <div class="h-56 rounded-2xl bg-gradient-to-br from-[#CCFBF1] via-[#E0F2FE] to-[#EDE9FE] p-6 mb-6 flex flex-col justify-between relative overflow-hidden book-shadow border border-white">
-              <div class="flex justify-between items-start">
-                <span class="px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-xs text-xs font-bold text-ink-muted">
-                  Rotina & Foco
-                </span>
-                <i class="fa-solid fa-bolt text-teal-600 text-sm"></i>
-              </div>
-              <div class="space-y-1">
-                <p class="font-editorial text-2xl font-bold text-ink leading-tight">
-                  Hábitos Atômicos
-                </p>
-                <p class="text-xs text-ink-muted font-medium">James Clear</p>
-              </div>
-              <div class="text-right">
-                <span class="text-[11px] font-semibold text-teal-900 bg-white/70 px-2 py-0.5 rounded-full">1% Melhor ao Dia</span>
-              </div>
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/deixa-pra-la.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/15165806-L.jpg" 
+                alt="Capa oficial do livro Deixa Pra Lá (A Teoria Let Them)" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
             </div>
 
-            <p class="text-sm text-ink-muted leading-relaxed mb-4">
-              Um método comprovado para construir bons hábitos e eliminar os ruins, aplicando pequenas mudanças que trazem resultados extraordinários.
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Paz Interior & Controle
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Deixa Pra Lá (A Teoria Let Them)
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Mel Robbins
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Uma metodologia libertadora para parar de tentar controlar as escolhas alheias, poupando energia mental e cultivando relações pautadas no respeito mútuo.
             </p>
 
             <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Plano de aplicação pessoal</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Ferramenta de rastreamento de leitura</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
             </ul>
           </div>
 
-          <button type="button" data-book-join="Hábitos Atômicos" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Deixa Pra Lá (A Teoria Let Them)" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
             <span>Participar Desta Leitura</span>
           </button>
         </article>
 
+        <!-- Livro: Acolhendo sua criança interior -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="autoajuda">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-emerald-50 text-emerald-800 border-emerald-200">
+                Autoajuda
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Biblioteca do Clube</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/acolhendo-sua-crianca-interior.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/12618133-L.jpg" 
+                alt="Capa oficial do livro Acolhendo sua criança interior" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Psicologia & Autocuidado
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Acolhendo sua criança interior
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Stefanie Stahl
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Um guia acolhedor para identificar os traumas e padrões da infância, desenvolvendo recursos para viver relacionamentos mais seguros, maduros e plenos.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Acolhendo sua criança interior" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Tudo é rio -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Leitura Aclamada</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/tudo-e-rio.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/14631316-L.jpg" 
+                alt="Capa oficial do livro Tudo é rio" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Ficção Brasileira
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Tudo é rio
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Carla Madeira
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              A história arrebatadora de Dalva e Venâncio, cujo amor é interrompido por uma tragédia, e Lucy, a prostituta mais cobiçada da cidade, em uma narrativa poética sobre dor e perdão.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Tudo é rio" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Tudo que deixamos inacabado -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Inscrições Abertas</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/tudo-que-deixamos-inacabado.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10240342-L.jpg" 
+                alt="Capa oficial do livro Tudo que deixamos inacabado" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Romance Histórico & Emoção
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Tudo que deixamos inacabado
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Rebecca Yarros
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Duas histórias de amor separadas por gerações: uma durante a Segunda Guerra Mundial e outra nos dias atuais, onde cartas esquecidas trazem segredos à tona.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Tudo que deixamos inacabado" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Doce perdão -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Ciclo Especial</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/doce-perdao.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10425906-L.jpg" 
+                alt="Capa oficial do livro Doce perdão" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Sensibilidade & Recomeço
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Doce perdão
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Lori Nelson Spielman
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Hannah Farr é confrontada com os segredos do passado quando o fenômeno das "Pedras do Perdão" ganha força, forçando escolhas entre o orgulho e a reconciliação.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Doce perdão" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Vergonha -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Biblioteca do Clube</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/vergonha.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/13916212-L.jpg" 
+                alt="Capa oficial do livro Vergonha" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Superação & Afeto
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Vergonha
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Brittainy Cherry
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Grace e Jackson carregam feridas profundas deixadas por perdas e desilusões, mas encontram na convivência um espaço de cura mútua e redescoberta do amor.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Vergonha" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Madame Bovary -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Clássico do Clube</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/madame-bovary.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/12993424-L.jpg" 
+                alt="Capa oficial do livro Madame Bovary" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Clássico Imortal
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Madame Bovary
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Gustave Flaubert
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              O clássico magistral que retrata os anseios românticos, as desilusões burguesas e a busca vertiginosa de Emma Bovary por uma paixão que desafia convenções.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Madame Bovary" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: O Rei Implacável -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Série Kingmaker</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/o-rei-implacavel.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10368542-L.jpg" 
+                alt="Capa oficial do livro O Rei Implacável" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Poder & Atração
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                O Rei Implacável
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Kennedy Ryan
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              Maxence e Lennix: um estrategista ambicioso e uma jovem ativista que se reencontram anos após um encontro marcante, divididos entre a ambição e o coração.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="O Rei Implacável" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
+
+        <!-- Livro: Criador de Reis -->
+        <article class="book-card bg-white rounded-3xl p-6 border border-indigo-deep/10 elevated-shadow relative flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group" data-category="romance-ficcao">
+          <div>
+            <!-- Header do Card com Categoria e Status -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold tracking-wide border bg-rose-50 text-rose-800 border-rose-200">
+                Romance e Ficção
+              </span>
+              <span class="text-xs font-semibold text-ink-subtle">Série Kingmaker</span>
+            </div>
+
+            <!-- Imagem da Capa Oficial do Livro -->
+            <div class="h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-5 bg-[#F5F3FF] relative book-shadow border border-gold-200/40 flex items-center justify-center">
+              <img 
+                src="img/covers/criador-de-reis.jpg" 
+                data-fallback="https://covers.openlibrary.org/b/id/10483510-L.jpg" 
+                alt="Capa oficial do livro Criador de Reis" 
+                class="book-cover-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+
+            <!-- Dados da Obra -->
+            <div class="mb-3">
+              <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 text-indigo-royal text-[11px] font-bold mb-1">
+                Romance & Paixão
+              </span>
+              <h3 class="font-editorial text-xl sm:text-2xl font-bold text-ink leading-tight">
+                Criador de Reis
+              </h3>
+              <p class="text-xs sm:text-sm text-gold-600 font-semibold font-accent mt-0.5">
+                Kennedy Ryan
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-3 mb-4">
+              O desfecho dramático da história de Lennix e Maxim, onde sacrifícios pessoais, jogos políticos e lealdade colocam à prova um amor arrebatador.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-ink-muted mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-vivid"></i> Encontro online ao vivo a cada 30 dias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-file-lines text-gold-600"></i> Caderno reflexivo & guia de perguntas</li>
+            </ul>
+          </div>
+
+          <!-- Botão Dinâmico de Ação -->
+          <button type="button" data-book-join="Criador de Reis" class="w-full py-3 rounded-full bg-brand-50 hover:bg-indigo-vivid text-indigo-royal hover:text-white text-xs sm:text-sm font-accent font-bold transition-all border border-brand-200 shadow-xs hover:shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base text-emerald-500 group-hover:text-white transition-colors"></i>
+            <span>Participar Desta Leitura</span>
+          </button>
+        </article>
       </div>
     </section>
     <!-- SEÇÃO: COMO FUNCIONA (Os 4 Passos da Metodologia com Tons Pasteis da Referência) -->
