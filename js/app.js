@@ -121,4 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  // Automatic Cover Fallback Handler
+  const bookCovers = document.querySelectorAll(".book-cover-img");
+  bookCovers.forEach(function (img) {
+    img.addEventListener("error", function () {
+      const fallbackUrl = this.getAttribute("data-fallback");
+      if (fallbackUrl && this.src !== fallbackUrl) {
+        this.src = fallbackUrl;
+      }
+    });
+  });
 });
