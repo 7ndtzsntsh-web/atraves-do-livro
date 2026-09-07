@@ -15,7 +15,7 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 - **Cabeçalhos Obrigatórios**:
   1. **Content-Security-Policy**:
      ```http
-     default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';
+     default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'none';
      ```
      *(A diretiva `frame-ancestors 'none'` é obrigatória para prevenção contra clickjacking).*
   2. **Strict-Transport-Security**: `max-age=63072000; includeSubDomains; preload`
@@ -42,8 +42,13 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 - Telefones e dados numéricos devem ser exibidos de forma agrupada e contínua, sem separadores desnecessários (exemplo: `(11) 945549000`).
 - Botões de ação devem disparar links dinâmicos de WhatsApp utilizando `encodeURIComponent` com mensagem personalizada e o número oficial (`5511945549000`).
 
-### 2.3. Seções Inteligentes
+### 2.3. Seções Inteligentes e Google Maps Interativo Obrigatório
 - Se não for fornecido endereço físico ou localização geográfica, omitir completamente blocos de mapas ou endereços, adaptando o design ao conteúdo disponível.
+- **Quando houver endereço físico**:
+  - É **expressamente proibido** usar capturas de tela estáticas ou imagens estáticas para representar mapas.
+  - Use **obrigatoriamente um `<iframe>` interativo do Google Maps** incorporado diretamente na página.
+  - O iframe deve conter `loading="lazy"`, largura total responsiva (`w-full`), altura mínima adequada (350px a 450px) e botão/link direto para navegação e rotas ("Abrir no Google Maps").
+  - O CSP em `vercel.json` e `<meta>` deve conter a diretiva `frame-src 'self' https://www.google.com https://maps.google.com;` para assegurar o funcionamento sem bloqueios.
 
 ### 2.4. Identidade Visual e Ativos
 - A logo oficial do cliente deve ser exibida no cabeçalho com proporções preservadas e sem cortes.
