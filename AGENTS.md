@@ -70,6 +70,11 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 ### 3.4. Fidelidade em Imagens Geradas (Último Recurso)
 - Se não houver imagens reais disponíveis e a geração por IA for estritamente necessária para compor o layout, a imagem gerada **DEVE** seguir à risca a identidade da empresa (paleta de cores, estilo de design, contexto do nicho). É expressamente proibido criar elementos fantasiosos, genéricos ou que contradigam as características reais do negócio.
 
+### 3.5. Extração de Contexto via Instagram e Redes Sociais
+- Se um link de rede social (como Instagram) for fornecido, tente analisar a URL para extrair informações da empresa (bio, serviços, fotos, identidade visual).
+- **Plano de Contingência (Anti-Bloqueio)**: O Instagram frequentemente bloqueia acesso automatizado. Se a leitura direta da URL falhar, extraia o `@nome_de_usuario` do link.
+- Em seguida, realize uma busca no Google usando o `@usuário` ou `"nome da empresa + Instagram"`. Utilize os textos públicos indexados pelo buscador e as imagens da empresa vinculadas a esse perfil no Google Imagens para capturar as fotos e dados necessários.
+
 ---
 
 ## 4. 🚀 Etapa de Pré-Deploy: Auto-Auditoria de SEO e Estrutura (Estilo SEOptimer)
