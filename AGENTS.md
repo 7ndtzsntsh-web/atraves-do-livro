@@ -67,9 +67,44 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 
 ---
 
-## 4. ✅ Checklist de Qualidade antes de Cada Commit
+## 4. 🚀 Etapa de Pré-Deploy: Auto-Auditoria de SEO e Estrutura (Estilo SEOptimer)
+
+Antes de finalizar qualquer projeto ou emitir o build, você **DEVE** rodar uma auto-auditoria estrita no código-fonte e corrigir automaticamente qualquer pendência encontrada:
+
+### 4.1. Metadados e `<head>`
+- **Meta Description**: Obrigatória, persuasiva e calibrada estritamente entre **130 e 155 caracteres**.
+- **Title Tag**: Obrigatória, contendo o nome da marca/serviço e palavra-chave, entre **40 e 60 caracteres**.
+- **Tag Canônica**: `<link rel="canonical" href="URL_DO_DOMINIO">` presente e apontando para a raiz.
+- **Favicon e Viewport**: Corretamente configurados para dispositivos móveis (`<meta name="viewport">` e `<link rel="icon">`).
+
+### 4.2. Open Graph & Social Cards
+- **Tags OG Completas**: `og:title`, `og:description`, `og:url`, `og:type`, `og:image`.
+- **Twitter Cards**: `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image`.
+- **Dimensões da Imagem**: A imagem apontada em `og:image` deve existir nos arquivos do projeto e ter dimensões mínimas recomendadas de **1200x630**.
+
+### 4.3. Acessibilidade e SEO On-Page
+- **Atributo ALT**: 100% das tags `<img>` devem conter o atributo `alt` preenchido e contextualizado.
+- **Hierarquia de Cabeçalhos**: Exatamente **um único `<h1>`** na página; `<h2>` e `<h3>` estruturados logicamente sem pular níveis.
+- **Idioma**: Atributo `lang="pt-BR"` declarado na tag `<html>`.
+
+### 4.4. Arquivos Técnicos e Indexação
+- Gerar sempre o arquivo `robots.txt` na raiz liberando acesso (`Allow: /`) e apontando para o sitemap.
+- Gerar sempre o arquivo `sitemap.xml` estruturado e válido na raiz com a URL canônica.
+- Inserir dados estruturados Schema.org (`JSON-LD`) para `LocalBusiness` ou `Organization` no `<head>`.
+
+### 4.5. Links Sociais
+- Garantir a presença de links reais (ou âncoras preparadas com `href`) no rodapé para redes sociais (Instagram, WhatsApp).
+
+### 4.6. Regra de Exceção
+- Ignore totalmente métricas de backlinks/links externos, focando **100% na conformidade técnica interna (SEO On-Page)**.
+
+---
+
+## 5. ✅ Checklist de Qualidade antes de Cada Commit
 1. Verificar integridade do JSON de configuração (`JSON.parse`, sem caracteres BOM).
 2. Auditar que nenhum script inline foi introduzido.
 3. Garantir cumprimento das regras de imagens (busca prévia de fotos reais antes de qualquer geração por IA).
-4. Confirmar que todas as instruções do prompt foram integralmente contempladas.
+4. Executar e aprovar a auto-auditoria estrita de SEO e estrutura (Estilo SEOptimer).
+5. Confirmar que todas as instruções do prompt foram integralmente contempladas.
+
 
