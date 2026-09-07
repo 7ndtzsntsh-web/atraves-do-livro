@@ -51,7 +51,25 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 
 ---
 
-## 3. ✅ Checklist de Qualidade antes de Cada Commit
+## 3. 🖼️ Regras Obrigatórias para Uso e Geração de Imagens
+
+### 3.1. Pesquisa Web Obrigatória
+- Antes de definir ou gerar qualquer imagem, você **DEVE** realizar uma pesquisa na web para buscar fotos oficiais, logotipos e a identidade visual real da empresa.
+
+### 3.2. Prioridade Absoluta para a Realidade
+- Utilize preferencialmente links e assets reais encontrados na pesquisa que representem a empresa de forma autêntica.
+
+### 3.3. Restrição de Geração por IA
+- Evite gerar imagens com IA para representar elementos que exigem precisão do mundo real (como fachadas, produtos específicos, logotipos exatos ou a equipe da empresa).
+
+### 3.4. Fidelidade em Imagens Geradas (Último Recurso)
+- Se não houver imagens reais disponíveis e a geração por IA for estritamente necessária para compor o layout, a imagem gerada **DEVE** seguir à risca a identidade da empresa (paleta de cores, estilo de design, contexto do nicho). É expressamente proibido criar elementos fantasiosos, genéricos ou que contradigam as características reais do negócio.
+
+---
+
+## 4. ✅ Checklist de Qualidade antes de Cada Commit
 1. Verificar integridade do JSON de configuração (`JSON.parse`, sem caracteres BOM).
 2. Auditar que nenhum script inline foi introduzido.
-3. Confirmar que todas as instruções do prompt foram integralmente contempladas.
+3. Garantir cumprimento das regras de imagens (busca prévia de fotos reais antes de qualquer geração por IA).
+4. Confirmar que todas as instruções do prompt foram integralmente contempladas.
+
