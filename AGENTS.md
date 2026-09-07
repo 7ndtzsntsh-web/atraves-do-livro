@@ -56,19 +56,20 @@ O arquivo `vercel.json` deve sempre conter as seguintes configurações para evi
 
 ---
 
-## 3. 🖼️ Regras Obrigatórias para Uso e Geração de Imagens
+## 3. 🖼️ Diretriz Estrita para Imagens (Realismo Obrigatório)
 
-### 3.1. Pesquisa Web Obrigatória
-- Antes de definir ou gerar qualquer imagem, você **DEVE** realizar uma pesquisa na web para buscar fotos oficiais, logotipos e a identidade visual real da empresa.
+### 3.1. Busca Primária (Fotos Reais e Bancos Fotográficos)
+- A prioridade absoluta é buscar fotos reais da empresa na web ou imagens fotográficas autênticas de bancos de imagens.
+- Salve os arquivos fisicamente no projeto (pasta `img/` ou `assets/`) e atualize o HTML com os caminhos locais corretos.
 
-### 3.2. Prioridade Absoluta para a Realidade
-- Utilize preferencialmente links e assets reais encontrados na pesquisa que representem a empresa de forma autêntica.
+### 3.2. Geração por IA (Último Recurso)
+- Você só tem permissão para gerar imagens com IA se não encontrar absolutamente nenhuma imagem real ou de banco de imagens que sirva para o contexto.
 
-### 3.3. Restrição de Geração por IA
-- Evite gerar imagens com IA para representar elementos que exigem precisão do mundo real (como fachadas, produtos específicos, logotipos exatos ou a equipe da empresa).
+### 3.3. Regra de Fotorrealismo Absoluto
+- Se for estritamente obrigado a gerar a imagem com IA, ela **DEVE** ser rigorosamente fotorrealista, plausível e 100% condizente com as características reais da empresa (paleta de cores, estilo de design, contexto do nicho).
 
-### 3.4. Fidelidade em Imagens Geradas (Último Recurso)
-- Se não houver imagens reais disponíveis e a geração por IA for estritamente necessária para compor o layout, a imagem gerada **DEVE** seguir à risca a identidade da empresa (paleta de cores, estilo de design, contexto do nicho). É expressamente proibido criar elementos fantasiosos, genéricos ou que contradigam as características reais do negócio.
+### 3.4. Proibições Expressas
+- É expressamente proibido entregar imagens com aspecto de desenho, ilustração, renderização 3D óbvia, texturas plásticas/artificiais ou elementos fantasiosos que quebrem a imersão de um negócio real.
 
 ### 3.5. Extração de Contexto via Instagram e Redes Sociais
 - Se um link de rede social (como Instagram) for fornecido, tente analisar a URL para extrair informações da empresa (bio, serviços, fotos, identidade visual).
